@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" alignment="CENTER"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.arle.proyectofx.controller.ProductoController"
+      stylesheets="@styles.css">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <VBox spacing="20" styleClass="form-container">
+        <HBox spacing="10" alignment="CENTER">
+            <Label text="ID:" />
+            <TextField fx:id="idField" prefWidth="50" editable="false"/>
+
+            <Label text="Nombre:" />
+            <TextField fx:id="nombreField" prefWidth="200"/>
+
+            <Label text="Precio:" />
+            <TextField fx:id="precioField" prefWidth="100"/>
+
+            <Label text="Stock:" />
+            <TextField fx:id="stockField" prefWidth="100"/>
+        </HBox>
+
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Nuevo" onAction="#handleNuevo"/>
+            <Button text="Guardar" onAction="#handleGuardar"/>
+            <Button text="Eliminar" onAction="#handleEliminar" styleClass="delete"/>
+            <Button text="Limpiar" onAction="#handleLimpiar"/>
+        </HBox>
+    </VBox>
+
+    <TableView fx:id="tablaProductos" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="colNombre" text="Nombre" prefWidth="200"/>
+            <TableColumn fx:id="colPrecio" text="Precio" prefWidth="100"/>
+            <TableColumn fx:id="colStock" text="Stock" prefWidth="100"/>
+        </columns>
+        <placeholder>
+            <Label text="No hay productos disponibles"/>
+        </placeholder>
+    </TableView>
+</VBox>
